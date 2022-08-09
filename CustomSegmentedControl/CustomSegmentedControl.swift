@@ -1,6 +1,5 @@
 //
 //  CustomSegmentedControl.swift
-//  iosRadio
 //
 //  Created by ejssong on 2022/07/22.
 //  Copyright © 2022 ejssong. All rights reserved.
