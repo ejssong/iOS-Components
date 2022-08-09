@@ -2,7 +2,7 @@
 //  CustomPageControl.swift
 //  iosPageControl
 //
-//  Created by 인포렉스 on 2022/08/03.
+//  Created by ejssong on 2022/08/03.
 //
 
 import Foundation
