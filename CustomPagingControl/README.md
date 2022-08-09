@@ -1,7 +1,7 @@
 ## _Description_
 - ios 14 이상 
 
-<img width="500" height="200" alt="스크린샷 2022-08-09 오후 5 24 21" src="https://user-images.githubusercontent.com/59044882/183602936-53de9626-51a5-44ef-80d8-e1738b74ce51.png">
+<img width="550" height="200" alt="스크린샷 2022-08-09 오후 5 24 21" src="https://user-images.githubusercontent.com/59044882/183602936-53de9626-51a5-44ef-80d8-e1738b74ce51.png">
 
 <br> 
 - ios 14 이하 
