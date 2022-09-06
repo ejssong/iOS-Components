@@ -28,20 +28,24 @@ class CustomPageControl : UIPageControl {
         
         for (index, view) in dotContentView.subviews.enumerated() {
             if view.isKind(of: UIImageView.self) {
-                
+    
                 let indicatorView = view as! UIImageView
                 indicatorView.image = nil
                 if index == self.currentPage {
-                    indicatorView.image = UIImage(color: .black , size: CGSize(width: 4, height: 2))?.withRenderingMode(.alwaysTemplate)
+                    guard let image = UIImage(color: .black) else { return }
+                    let img = image.resizeImage(image: image , width: 12, height: 6)
+                    indicatorView.image = img
                 } else {
-                    indicatorView.image = UIImage(color: .gray , size : CGSize(width: 2, height: 2))?.withRenderingMode(.alwaysTemplate)
+                    guard let image = UIImage(color: .gray) else { return }
+                    let img = image.resizeImage(image: image, width: 6, height: 6)
+                    indicatorView.image = img
                 }
                 
-                indicatorView.layer.cornerRadius = 3
+                indicatorView.layer.cornerRadius = (indicatorView.image?.size.height ?? 6) / 2
                 indicatorView.clipsToBounds = true
-                self.sizeToFit()
             }
         }
+        dotContentView.sizeToFit()
     }
     
     func updateUI() {
@@ -52,7 +56,6 @@ class CustomPageControl : UIPageControl {
         }
     }
     
-//    @available(iOS 14.0, *)
     func findIndicatorContentView() -> UIView? {
         for contentView in self.subviews {
             if let contentViewClass = NSClassFromString("_UIPageControlContentView"), contentView.isKind(of: contentViewClass) {
@@ -66,5 +69,15 @@ class CustomPageControl : UIPageControl {
         }
         
         return nil
+    }
+}
+
+extension UIImage {
+    func resizeImage(image : UIImage, width: CGFloat, height : CGFloat) -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: width, height: height))
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage ?? image
     }
 }
